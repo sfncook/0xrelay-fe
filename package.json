@@ -14,7 +14,8 @@
         "ganache-cli": "cross-env ganache-cli --gasLimit 10000000 --noVMErrorsOnRPCResponse --db 0x_ganache_snapshot --noVMErrorsOnRPCResponse -p 8545 --networkId 50 -m \"${npm_package_config_mnemonic}\"",
         "my:start": "react-scripts-ts start",
         "my:build": "react-scripts-ts build",
-        "my:test": "react-scripts-ts test --env=jsdom"
+        "my:test": "react-scripts-ts test --env=jsdom",
+        "my:start-server": "cross-env yarn build && node ./lib/sra_server.js"
     },
     "config": {
         "mnemonic": "concert load couple harbor equip island argue ramp clarify fence smart topic",
