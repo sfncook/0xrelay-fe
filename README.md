@@ -14,14 +14,16 @@ $ npm run ganache-cli
 
 Terminal #2: Run backend server:
 ```console
-$ npm run fake_sra_server
+$ npm run my:start-server
 ```
-and wait until you see the output: `Standard relayer API (HTTP) listening on port 3000!`
+and wait until you see the output: `Standard relayer API (HTTP) listening on port 3300!` (port number might vary)
 
 Terminal #3: Run frontend app:
 ```console
-$ npm run scenario:fill_order_sra
+$ npm run my:start
 ```
+
+A browser window should open automatically for URL: `http://localhost:3001/`
 
 # \\/\\/\\/\\/ OLD STUFF \\/\\/\\/\\/
 <img src="https://github.com/0xProject/branding/blob/master/0x_Black_CMYK.png" width="200px" >

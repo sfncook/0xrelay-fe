@@ -18,7 +18,7 @@ import { providerEngine } from './provider_engine';
 
 const HTTP_OK_STATUS = 200;
 const HTTP_BAD_REQUEST_STATUS = 400;
-const HTTP_PORT = 3000;
+const HTTP_PORT = 3300;
 
 // Global state
 const orders: SignedOrder[] = [];
@@ -120,7 +120,7 @@ app.post('/v2/order', (req, res) => {
         res.status(HTTP_OK_STATUS).send({});
     }
 });
-app.listen(HTTP_PORT, () => console.log('Standard relayer API (HTTP) listening on port 3000!'));
+app.listen(HTTP_PORT, () => console.log('Standard relayer API (HTTP) listening on port '+HTTP_PORT+'!'));
 
 function renderOrderbookResponse(baseAssetData: string, quoteAssetData: string): OrderbookResponse {
     const bidOrders = orders.filter(order => {
