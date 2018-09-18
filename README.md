@@ -25,7 +25,8 @@ Terminal #3: Run frontend app:
 $ npm run scenario:fill_order_sra
 ```
 
-# 0x Starter Project (Old README text)
+# \\/\\/\\/\\/ OLD STUFF \\/\\/\\/\\/
+# 0x Starter Project
 
 This project will take you through a number of scenarios using the 0x v2 protocol.
 The previous v1 starter project has been moved to the ['v1' branch](https://github.com/0xProject/0x-starter-project/tree/v1).
