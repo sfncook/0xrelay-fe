@@ -1,8 +1,31 @@
 <img src="https://github.com/0xProject/branding/blob/master/0x_Black_CMYK.png" width="200px" >
 
-# 0x Starter Project
+# Init Project
+You only have to run the following once to get the project initialized
+```console
+$ npm install
+$ npm run download_snapshot
+```
 
-![cli](https://user-images.githubusercontent.com/27389/42074402-6dcc5ccc-7baf-11e8-84f1-9a27f1a96b08.png)
+# Run the Project
+Run these commands everytime you want to run the project.  You will run each of these series of commands in a different terminal window.
+Terminal #1: Run Ganache cli (you can't use normal Ganache UI):
+```console
+$ npm run ganache-cli
+```
+
+Terminal #2: Run backend server:
+```console
+$ npm run fake_sra_server
+```
+and wait until you see the output: `Standard relayer API (HTTP) listening on port 3000!`
+
+Terminal #3: Run frontend app:
+```console
+$ npm run scenario:fill_order_sra
+```
+
+# 0x Starter Project (Old README text)
 
 This project will take you through a number of scenarios using the 0x v2 protocol.
 The previous v1 starter project has been moved to the ['v1' branch](https://github.com/0xProject/0x-starter-project/tree/v1).
