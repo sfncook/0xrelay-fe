@@ -41,8 +41,8 @@ const borderlessSchema = {
     ...defaultSchema,
     chars: {
         top: '',
-        'top-mid': '',
         'top-left': '',
+        'top-mid': '',
         'top-right': '',
         bottom: '',
         'bottom-mid': '',

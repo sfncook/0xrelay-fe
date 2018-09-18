@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "outDir": "lib",
-        "lib": ["es2017"],
+        "lib": ["es2017", "dom"],
+        "jsx": "react",
         "skipLibCheck": true,
         "sourceMap": true,
         "declaration": true,
