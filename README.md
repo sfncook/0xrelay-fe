@@ -1,5 +1,3 @@
-<img src="https://github.com/0xProject/branding/blob/master/0x_Black_CMYK.png" width="200px" >
-
 # Init Project
 You only have to run the following once to get the project initialized
 ```console
@@ -26,6 +24,8 @@ $ npm run scenario:fill_order_sra
 ```
 
 # \\/\\/\\/\\/ OLD STUFF \\/\\/\\/\\/
+<img src="https://github.com/0xProject/branding/blob/master/0x_Black_CMYK.png" width="200px" >
+
 # 0x Starter Project
 
 This project will take you through a number of scenarios using the 0x v2 protocol.
