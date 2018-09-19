@@ -12,10 +12,9 @@
         "copy_artifacts": "copyfiles -u 1 './src/artifacts/**/*' ./lib",
         "download_snapshot": "cross-env download --extract --strip 1 --out 0x_ganache_snapshot ${npm_package_config_snapshot_url}",
         "ganache-cli": "cross-env ganache-cli --gasLimit 10000000 --noVMErrorsOnRPCResponse --db 0x_ganache_snapshot --noVMErrorsOnRPCResponse -p 8545 --networkId 50 -m \"${npm_package_config_mnemonic}\"",
-        "my:start": "react-scripts-ts start",
+        "start": "react-scripts-ts start",
         "my:build": "react-scripts-ts build",
-        "my:test": "react-scripts-ts test --env=jsdom",
-        "my:start-server": "cross-env yarn build && node ./lib/sra_server.js"
+        "my:test": "react-scripts-ts test --env=jsdom"
     },
     "config": {
         "mnemonic": "concert load couple harbor equip island argue ramp clarify fence smart topic",
@@ -40,9 +39,7 @@
         "react": "^16.5.1",
         "react-dom": "^16.5.1",
         "run-s": "^0.0.0",
-        "websocket": "^1.0.26"
-    },
-    "devDependencies": {
+        "websocket": "^1.0.26",
         "@0xproject/dev-utils": "^1.0.7",
         "@0xproject/tslint-config": "^1.0.7",
         "@types/body-parser": "^1.17.0",
