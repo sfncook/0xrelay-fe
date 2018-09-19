@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as React from 'react';
 
 import {
@@ -87,56 +88,59 @@ class App extends React.Component {
             ['Taker WETH Deposit', takerWETHDepositTxHash],
         ]);
 
-        // Initialize the Standard Relayer API client
-        const httpClient = new HttpClient('http://localhost:3300/v2/');
-
-        // Generate and expiration time and find the exchange smart contract address
-        const randomExpiration = getRandomFutureDateInSeconds();
-        const exchangeAddress = contractWrappers.exchange.getContractAddress();
-
-        // Ask the relayer about the parameters they require for the order
-        const orderConfigRequest = {
-            exchangeAddress,
-            makerAddress: maker,
-            takerAddress: NULL_ADDRESS,
-            expirationTimeSeconds: randomExpiration,
-            makerAssetAmount,
-            takerAssetAmount,
-            makerAssetData,
-            takerAssetData,
-        };
-
-        console.log('#1');
-        const orderConfig = await httpClient.getOrderConfigAsync(
-            orderConfigRequest,
-            { networkId: NETWORK_CONFIGS.networkId },
-        );
-        console.log('#2');
-
-        // Create the order
-        const order: Order = {
-            salt: generatePseudoRandomSalt(),
-            ...orderConfigRequest,
-            ...orderConfig,
-        };
-
-        // Generate the order hash and sign it
-        const orderHashHex = orderHashUtils.getOrderHashHex(order);
-        const signature = await signatureUtils.ecSignOrderHashAsync(
-            providerEngine,
-            orderHashHex,
-            maker,
-            SignerType.Default,
-        );
-        const signedOrder = { ...order, signature };
-
-        // Validate this order
-        await contractWrappers.exchange.validateOrderFillableOrThrowAsync(signedOrder);
-
-        // Submit the order to the SRA Endpoint
-        console.log('#31');
-        await httpClient.submitOrderAsync(signedOrder, { networkId: NETWORK_CONFIGS.networkId });
-        console.log('#32');
+        const config = {headers:{'Access-Control-Allow-Origin':'*'}};
+        const res = await axios.get('http://localhost:3300/v2/orderbook?networkId=50', config);
+        console.log(res);
+        // // Initialize the Standard Relayer API client
+        // const httpClient = new HttpClient('http://localhost:3300/v2/');
+        //
+        // // Generate and expiration time and find the exchange smart contract address
+        // const randomExpiration = getRandomFutureDateInSeconds();
+        // const exchangeAddress = contractWrappers.exchange.getContractAddress();
+        //
+        // // Ask the relayer about the parameters they require for the order
+        // const orderConfigRequest = {
+        //     exchangeAddress,
+        //     makerAddress: maker,
+        //     takerAddress: NULL_ADDRESS,
+        //     expirationTimeSeconds: randomExpiration,
+        //     makerAssetAmount,
+        //     takerAssetAmount,
+        //     makerAssetData,
+        //     takerAssetData,
+        // };
+        //
+        // console.log('#1');
+        // const orderConfig = await httpClient.getOrderConfigAsync(
+        //     orderConfigRequest,
+        //     { networkId: NETWORK_CONFIGS.networkId },
+        // );
+        // console.log('#2');
+        //
+        // // Create the order
+        // const order: Order = {
+        //     salt: generatePseudoRandomSalt(),
+        //     ...orderConfigRequest,
+        //     ...orderConfig,
+        // };
+        //
+        // // Generate the order hash and sign it
+        // const orderHashHex = orderHashUtils.getOrderHashHex(order);
+        // const signature = await signatureUtils.ecSignOrderHashAsync(
+        //     providerEngine,
+        //     orderHashHex,
+        //     maker,
+        //     SignerType.Default,
+        // );
+        // const signedOrder = { ...order, signature };
+        //
+        // // Validate this order
+        // await contractWrappers.exchange.validateOrderFillableOrThrowAsync(signedOrder);
+        //
+        // // Submit the order to the SRA Endpoint
+        // console.log('#31');
+        // await httpClient.submitOrderAsync(signedOrder, { networkId: NETWORK_CONFIGS.networkId });
+        // console.log('#32');
     }
 
     public render() {
