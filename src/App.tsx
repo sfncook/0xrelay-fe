@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 
+import OrderCreate from "./components/OrderCreate";
 import OrderTable from "./components/OrderTable";
 
 // import {
@@ -149,6 +150,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <OrderTable />
+                <OrderCreate />
             </div>
         );
     }
